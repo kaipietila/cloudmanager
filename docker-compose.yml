@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  frontend:
+    hostname: react
+    build: 
+      context: .
+      dockerfile: ./cloudmanager/Dockerfile
+    ports:
+      - "3000:3000"
+  
+  backend:
+    hostname: python
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "8000:8000"

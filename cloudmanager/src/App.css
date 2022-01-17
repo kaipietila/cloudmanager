@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.leaflet-container {
+  width: 100vw; 
+  height: 100vh;
+}
+.map {
+  height: 500px;
+  width: 500px;
+}
+.cloudselector {
+  font-size: 12px;
+}
