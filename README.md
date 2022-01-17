@@ -1,4 +1,4 @@
-Cloudmanager for ease of Aiven cloud selection.
+Cloudmanager for ease of cloud selection. Uses Aiven cloud api for cloud information.
 
 To run build containers with docker-compose build,
 or simply docker-compose up.
