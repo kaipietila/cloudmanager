@@ -124,6 +124,7 @@ export const App = () => {
   const [selected, setSelected] = useState([])
   const [userLoc, setUserLoc] = useState<LatLngTuple | null[]>([null, null])
   const [selectedProvider, setSelectedProvider] = useState<string>("")
+  let hasErrors;
 
   const getUserLocation = () => {
     navigator.geolocation.getCurrentPosition(
@@ -134,7 +135,11 @@ export const App = () => {
   getUserLocation()
   
   useEffect(() => {
-    axios.get(baseUrl + '/clouds').then((response: AxiosResponse) => setData(response.data))
+    axios.get(baseUrl + '/clouds')
+    .then((response: AxiosResponse) => setData(response.data))
+    .catch((error: Error) => {
+      hasErrors = true
+    })
   }, []);
 
   const markersToRender = (): Cloud[] => {
@@ -147,7 +152,13 @@ export const App = () => {
     }
   }
   const markers = markersToRender()
-
+  if (hasErrors) {
+    return (
+      <div>
+        <p>Unable to load data. Try again!</p>
+      </div>
+    )
+  }
   return (
     <div className="App">
       <CloudSelector 

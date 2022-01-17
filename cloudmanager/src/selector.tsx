@@ -165,14 +165,14 @@ export const CloudSelector = (props: CloudSelectorProps) => {
                 value={selectedName ? selectedName : ""}
                 onChange={handleChange}
                 >
-                    {valueItems.map((cloud: Cloud) => (
-                        <MenuItem 
-                        key={cloud.cloud_name} 
-                        value={cloud.cloud_name}
-                        >
-                        {cloud.cloud_name}
-                        </MenuItem>
-                    ))}
+                  {valueItems.map((cloud: Cloud) => (
+                      <MenuItem 
+                      key={cloud.cloud_name} 
+                      value={cloud.cloud_name}
+                      >
+                      {cloud.cloud_name}
+                      </MenuItem>
+                  ))}
                 </Select>
             </FormControl>
             <FormControl fullWidth>
